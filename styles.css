@@ -75,6 +75,12 @@ main {
 /* Settings Panel */
 .settings-panel {
     margin-bottom: 20px;
+    /* Smooth expand/collapse */
+    overflow: hidden;
+    max-height: 2000px; /* sufficiently large to accommodate content */
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 300ms ease-out, opacity 250ms ease-out, transform 250ms ease-out;
 }
 
 .setting-group {
@@ -185,6 +191,31 @@ main {
     color: white;
 }
 
+/* Settings toggle button */
+.settings-toggle {
+    width: 100%;
+    margin: 10px 0 15px 0;
+    background: #ffffff;
+    color: #6b7280;
+    border: 2px solid #e5e7eb;
+}
+
+.settings-toggle:hover {
+    border-color: #cbd5e1;
+}
+
+.settings-toggle:active {
+    transform: scale(0.98);
+}
+
+.settings-toggle .icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    fill: currentColor;
+    vertical-align: -2px;
+}
+
 /* Phase-specific colors */
 .phase-warmup {
     color: #f59e0b !important;
@@ -192,6 +223,25 @@ main {
 
 .phase-training {
     color: #10b981 !important;
+}
+
+/* Utility */
+.hidden {
+    display: none;
+}
+
+/* Collapse panel when Settings toggle is not expanded */
+#settingsToggle[aria-expanded="false"] + #settingsPanel {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Smooth opening animation when expanded */
+#settingsToggle[aria-expanded="true"] + #settingsPanel {
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .phase-rest {

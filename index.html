@@ -22,6 +22,21 @@
                 <div class="interval-counter" id="intervalCounter">Interval: 0/0</div>
             </div>
 
+            <!-- Settings Toggle -->
+            <button
+                id="settingsToggle"
+                class="btn settings-toggle"
+                aria-controls="settingsPanel"
+                aria-expanded="true"
+                aria-pressed="true"
+                onclick="toggleSettingsPanel()"
+            >
+                <svg class="icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                    <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm9.03-3.78-.96-.55c.06-.39.1-.8.1-1.17s-.04-.78-.1-1.17l.96-.55a1 1 0 0 0 .37-1.37l-1.14-1.98a1 1 0 0 0-1.28-.44l-1.1.46c-.6-.5-1.27-.92-1.98-1.23l-.17-1.18A1 1 0 0 0 13.75 1h-2.3a1 1 0 0 0-.99.84l-.18 1.18c-.71.3-1.37.72-1.98 1.22l-1.1-.45a1 1 0 0 0-1.28.44L3.58 6.21a1 1 0 0 0 .37 1.37l.96.55c-.06.39-.1.8-.1 1.17 0 .38.04.78.1 1.17l-.96.55a1 1 0 0 0-.37 1.37l1.14 1.98a1 1 0 0 0 1.28.44l1.1-.46c.6.5 1.27.92 1.98 1.23l.17 1.18c.08.48.5.84.99.84h2.3c.5 0 .91-.36.99-.84l.17-1.18c.71-.3 1.38-.72 1.98-1.22l1.1.45c.47.2 1.02.02 1.28-.44l1.14-1.98a1 1 0 0 0-.37-1.37ZM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path>
+                </svg>
+                Settings
+            </button>
+
             <!-- Settings Panel -->
             <div class="settings-panel" id="settingsPanel">
                 <div class="setting-group">

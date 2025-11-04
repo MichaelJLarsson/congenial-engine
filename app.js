@@ -87,6 +87,13 @@ function startTimer() {
     // Disable settings inputs
     toggleSettingsInputs(true);
     
+    // Auto-hide settings on start (Option C) using aria-expanded
+    const toggleBtn = document.getElementById('settingsToggle');
+    if (toggleBtn) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-pressed', 'false');
+    }
+    
     if (!timerState.isPaused) {
         // Starting fresh
         timerState.currentPhase = settings.warmupTime > 0 ? 'warmup' : 'training';
@@ -228,6 +235,18 @@ function toggleSettingsInputs(disabled) {
     // Also disable adjust buttons
     const adjustButtons = document.querySelectorAll('.btn-adjust');
     adjustButtons.forEach(btn => btn.disabled = disabled);
+}
+
+// Toggle visibility of settings panel and sync ARIA state
+function toggleSettingsPanel() {
+    const toggleBtn = document.getElementById('settingsToggle');
+    if (!toggleBtn) {
+        return;
+    }
+    const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    const nextExpanded = !expanded;
+    toggleBtn.setAttribute('aria-expanded', String(nextExpanded));
+    toggleBtn.setAttribute('aria-pressed', String(nextExpanded));
 }
 
 // Simple beep sound using Web Audio API
