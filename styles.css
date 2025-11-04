@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Timer Display */
+.timer-display {
+    text-align: center;
+    padding: 30px 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.phase-indicator {
+    font-size: 20px;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.time-display {
+    font-size: 64px;
+    font-weight: 700;
+    color: #333;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+.interval-counter {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Settings Panel */
+.settings-panel {
+    margin-bottom: 20px;
+}
+
+.setting-group {
+    margin-bottom: 20px;
+}
+
+.setting-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.input-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-controls input[type="number"] {
+    flex: 1;
+    font-size: 18px;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    -moz-appearance: textfield;
+}
+
+.input-controls input[type="number"]::-webkit-outer-spin-button,
+.input-controls input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-controls input[type="number"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-adjust {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-adjust:active {
+    background: #667eea;
+    color: white;
+    transform: scale(0.95);
+}
+
+/* Control Buttons */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-secondary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-tertiary {
+    background: #6c757d;
+    color: white;
+}
+
+/* Phase-specific colors */
+.phase-warmup {
+    color: #f59e0b !important;
+}
+
+.phase-training {
+    color: #10b981 !important;
+}
+
+.phase-rest {
+    color: #3b82f6 !important;
+}
+
+.phase-complete {
+    color: #8b5cf6 !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 20px;
+    }
+    
+    .time-display {
+        font-size: 48px;
+    }
+    
+    .btn-adjust {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .btn {
+        padding: 14px;
+        font-size: 14px;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .timer-display {
+        padding: 20px;
+    }
+    
+    .time-display {
+        font-size: 48px;
+    }
+    
+    .setting-group {
+        margin-bottom: 15px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

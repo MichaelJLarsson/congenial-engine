@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Interval Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Interval Timer</h1>
+        </header>
+
+        <main>
+            <!-- Timer Display -->
+            <div class="timer-display">
+                <div class="phase-indicator" id="phaseIndicator">Ready</div>
+                <div class="time-display" id="timeDisplay">00:00</div>
+                <div class="interval-counter" id="intervalCounter">Interval: 0/0</div>
+            </div>
+
+            <!-- Settings Panel -->
+            <div class="settings-panel" id="settingsPanel">
+                <div class="setting-group">
+                    <label for="warmupTime">Warmup Time (seconds)</label>
+                    <div class="input-controls">
+                        <button class="btn-adjust" onclick="adjustTime('warmup', -5)">-5</button>
+                        <input type="number" id="warmupTime" value="30" min="0" max="600" step="5">
+                        <button class="btn-adjust" onclick="adjustTime('warmup', 5)">+5</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="trainingTime">Training Time (seconds)</label>
+                    <div class="input-controls">
+                        <button class="btn-adjust" onclick="adjustTime('training', -5)">-5</button>
+                        <input type="number" id="trainingTime" value="40" min="1" max="600" step="5">
+                        <button class="btn-adjust" onclick="adjustTime('training', 5)">+5</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="restTime">Rest Time (seconds)</label>
+                    <div class="input-controls">
+                        <button class="btn-adjust" onclick="adjustTime('rest', -5)">-5</button>
+                        <input type="number" id="restTime" value="20" min="0" max="600" step="5">
+                        <button class="btn-adjust" onclick="adjustTime('rest', 5)">+5</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="intervals">Number of Intervals</label>
+                    <div class="input-controls">
+                        <button class="btn-adjust" onclick="adjustTime('intervals', -1)">-1</button>
+                        <input type="number" id="intervals" value="8" min="1" max="50" step="1">
+                        <button class="btn-adjust" onclick="adjustTime('intervals', 1)">+1</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="controls">
+                <button class="btn btn-primary" id="startBtn" onclick="startTimer()">Start</button>
+                <button class="btn btn-secondary" id="pauseBtn" onclick="pauseTimer()" disabled>Pause</button>
+                <button class="btn btn-tertiary" id="resetBtn" onclick="resetTimer()">Reset</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
